@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch User",
+            "request": "launch",
+            "mainClass": "user.User",
+            "projectName": "ticktrail_d7726330"
+        },
+        {
+            "type": "java",
+            "name": "Launch Mysql",
+            "request": "launch",
+            "mainClass": "database.Mysql",
+            "projectName": "ticktrail_d7726330"
+        },
+        {
+            "type": "java",
+            "name": "Launch Mysql",
+            "request": "launch",
+            "mainClass": "Mysql",
+            "projectName": "ticktrail_d7726330"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -16,7 +37,7 @@
             "request": "launch",
             "mainClass": "App",
             "projectName": "ticktrail_d7726330",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

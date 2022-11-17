@@ -57,7 +57,7 @@ public class User extends Mysql implements UserInterface {
     }
 
     public void logout(String id) {
-
+        System.out.println("test");
     }
 
     public static void main(String[] args) {

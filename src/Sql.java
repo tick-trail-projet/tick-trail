@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Sql {
     Connection con = null;
@@ -105,6 +106,8 @@ public class Sql {
         // Map<String, Object> test_query = test.getQuery("SELECT * FROM user WHERE id =
         // \"717729969395990548\"");
         // System.out.println(test_query.get("alt"));
-        System.out.println(test.getQuery("SELECT * FROM cities"));
+        Scanner sc = new Scanner(System.in);
+        String search = sc.nextLine();
+        System.out.println(test.getSingleQuery("SELECT * FROM cities WHERE name='" + search+ "'"));
     }
 }

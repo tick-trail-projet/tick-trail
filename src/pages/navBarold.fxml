@@ -8,7 +8,7 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="147.0" style="-fx-background-color: #1f2129;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#btnHomeClicked" prefHeight="51.0" prefWidth="147.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="WHITE" />
+            <Button styleClass="unique" mnemonicParsing="false" onAction="#btnHomeClicked" prefHeight="51.0" prefWidth="147.0" style="-fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="WHITE" />
          </children>
       </VBox>
    </left>

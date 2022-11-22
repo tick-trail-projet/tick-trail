@@ -3,6 +3,7 @@ import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 
 public class FxmlLoader {
+
     private Pane view;
 
     public Pane getPage(String fileName) {

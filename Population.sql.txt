@@ -1,0 +1,6 @@
+-- Client
+
+INSERT INTO Client(Num,Pseudonyme,Mot_de_passe,Email) 
+VALUES (1,"Yanis","0000","ya200245@gmail.com");
+
+SELECT * ;

@@ -1,4 +1,4 @@
-package user;
+package com.ticktrail.user;
 
 import java.util.List;
 import java.util.Map;

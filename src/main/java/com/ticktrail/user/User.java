@@ -1,10 +1,10 @@
-package user;
+package com.ticktrail.user;
 
 import java.util.Collections;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import database.Mysql;
+import com.ticktrail.database.Mysql;
 
 public class User extends Mysql implements UserInterface {
 

@@ -1,8 +1,9 @@
-package controllers;
+package com.ticktrail.controllers;
+
+import com.ticktrail.FxmlLoader;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -14,10 +15,6 @@ public class Navbar {
     @FXML
     void btnReserverClicked(ActionEvent event) {
         System.out.println("test");
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage("test2");
-        mainPane.setCenter(view);
-
     }
 
     @FXML

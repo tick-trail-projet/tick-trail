@@ -1,3 +1,5 @@
+package com.ticktrail;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,8 +11,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/pages/EmptyNavbar.fxml"));
-        root.getStylesheets().add(getClass().getResource("/public/css/style.css").toExternalForm());
+        Parent root = FXMLLoader.load(getClass().getResource("pages/EmptyNavbar.fxml"));
+        root.getStylesheets().add(getClass().getResource("public/css/style.css").toExternalForm());
         stage.setTitle("Tick&Trail");
         stage.setScene(new Scene(root));
         stage.show();

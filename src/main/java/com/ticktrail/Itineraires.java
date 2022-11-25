@@ -1,3 +1,5 @@
+package com.ticktrail;
+
 public class Itineraires {
     private String start;
     private String end;

@@ -1,3 +1,5 @@
+package com.ticktrail;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 

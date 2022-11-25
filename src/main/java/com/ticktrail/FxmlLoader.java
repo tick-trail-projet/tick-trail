@@ -1,3 +1,5 @@
+package com.ticktrail;
+
 import java.net.URL;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;

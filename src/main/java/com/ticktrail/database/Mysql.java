@@ -103,6 +103,6 @@ public class Mysql {
         // Map<String, Object> test_query = test.getQuery("SELECT * FROM user WHERE id =
         // \"717729969395990548\"");
         // System.out.println(test_query.get("alt"));
-        System.out.println(test.getSingleQuery("SELECT * FROM user WHERE id = \"879139649497477140\""));
+        System.out.println(test.getSingleQuery("SELECT * FROM users WHERE id = \"879139649497477140\""));
     }
 }

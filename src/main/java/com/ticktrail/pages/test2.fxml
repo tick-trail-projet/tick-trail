@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-      <Pane layoutX="147.0" layoutY="44.0" prefHeight="83.0" prefWidth="629.0" style="-fx-background-color: #77acff;">
+      <Pane layoutX="294.0" prefHeight="83.0" prefWidth="629.0" style="-fx-background-color: #77acff;">
          <children>
             <TextField alignment="CENTER" layoutX="166.0" layoutY="16.0" style="-fx-background-color: #77acff;" text="Se connecter">
                <font>
@@ -20,7 +20,7 @@
             </TextField>
          </children>
       </Pane>
-      <Pane layoutX="186.0" layoutY="163.0" prefHeight="300.0" prefWidth="550.0" style="-fx-background-color: #6b87a3;">
+      <Pane layoutX="294.0" layoutY="83.0" prefHeight="418.0" prefWidth="630.0" style="-fx-background-color: #6b87a3;">
          <children>
             <Text fill="WHITE" layoutX="231.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER" wrappingWidth="87.73675537109375">
                <font>

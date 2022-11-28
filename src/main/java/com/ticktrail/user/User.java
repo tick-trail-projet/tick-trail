@@ -25,10 +25,13 @@ public class User extends Mysql implements UserInterface {
         super();
     }
 
-    public void create(String name, String surname, int phone, String email, String adress, String city) {
-        if (exist(email) == true) {
+    public void create(String name, String password, String surname, String phone, String email, String adress,
+            String city) {
+        if (exist(email) == false) {
             super.runQuery(
-                    "INSERT INTO `users`(`name`, `surname`, `phone`, `email`, `adress`, `city`) VALUES ('" + name
+                    "INSERT INTO `users`(`name`, `password`, `surname`, `phone`, `email`, `adress`, `city`) VALUES ('"
+                            + name
+                            + "','" + password
                             + "','" + surname + "','" + phone + "','" + email + "','" + adress + "','" + city + "')");
         }
     }

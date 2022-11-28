@@ -48,7 +48,7 @@
     </VBox>
       <Pane layoutX="256.0" layoutY="50.0" prefHeight="83.0" prefWidth="629.0" style="-fx-background-color: #77acff;">
          <children>
-            <TextField alignment="CENTER" layoutX="170.0" layoutY="26.0" text="Reserver">
+            <TextField alignment="CENTER" layoutX="166.0" layoutY="16.0" style="-fx-background-color: #77acff;" text="Reserver">
                <font>
                   <Font size="24.0" />
                </font>

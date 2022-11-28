@@ -1,3 +1,7 @@
+.text-input {
+    -fx-text-fill: white;
+}
+
 .button {
     -fx-background-color: transparent;
 }

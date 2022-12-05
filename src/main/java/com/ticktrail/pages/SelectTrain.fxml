@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ticktrail.controllers.Register">
+  <children>
+    <fx:include fx:id="test" source="EmptyNavbar.fxml" />
+    <Pane layoutX="255.0" prefHeight="83.0" prefWidth="629.0" style="-fx-background-color: #77acff;">
+      <children>
+        <TextField alignment="CENTER" layoutX="166.0" layoutY="16.0" style="-fx-background-color: #77acff;" text="Selectionner Ce Trajet">
+          <font>
+            <Font size="24.0" />
+          </font>
+        </TextField>
+      </children>
+    </Pane>
+    <Pane layoutX="254.0" layoutY="83.0" prefHeight="418.0" prefWidth="630.0" style="-fx-background-color: #6b87a3;">
+      <children>
+        <Text fill="WHITE" layoutX="271.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix" textAlignment="CENTER" wrappingWidth="87.73675537109375">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Text>
+        <TextField id="email" fx:id="email" alignment="CENTER" layoutX="60.0" layoutY="64.0" prefHeight="35.0" prefWidth="513.0" style="-fx-background-color: #2c3e50;" />
+        <Text fill="WHITE" layoutX="267.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Départ" textAlignment="CENTER" wrappingWidth="97.33673095703125">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Text>
+        <TextField fx:id="name" layoutX="62.0" layoutY="162.0" prefHeight="35.0" prefWidth="513.0" style="-fx-background-color: #2c3e50;" />
+        <Text fill="WHITE" layoutX="250.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrivée" textAlignment="CENTER" wrappingWidth="156.5367431640625">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Text>
+        <TextField fx:id="surname" layoutX="68.0" layoutY="272.0" prefHeight="35.0" prefWidth="520.0" style="-fx-background-color: #2c3e50;" />
+        <Button alignment="CENTER" layoutX="252.0" layoutY="313.0" mnemonicParsing="false" onAction="#btnOnRegisterClicked" prefHeight="35.0" prefWidth="126.0" style="-fx-background-color: #2970cc; -fx-border-radius: 5%;" text="Payer" textAlignment="CENTER" textFill="WHITE">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Button>
+            <Button alignment="CENTER" layoutX="252.0" layoutY="372.0" mnemonicParsing="false" onAction="#btnOnRegisterClicked" prefHeight="35.0" prefWidth="126.0" style="-fx-background-color: red; -fx-border-radius: 5%;" text="Annuler" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

@@ -21,29 +21,20 @@ public class Navbar {
     private BorderPane mainPane;
 
     @FXML
-    void btnReserverClicked(ActionEvent event) {
-        System.out.println("test");
-    }
-
-    @FXML
-    void btnMesreservationsClicked(ActionEvent event) {
-        System.out.println("test");
-    }
-
-    @FXML
-    void btnParametresClicked(ActionEvent event) {
-        System.out.println("test");
-    }
-
-    @FXML
-    void btnRegisterClicked(ActionEvent event) throws IOException {
+    void btnReserverClicked(ActionEvent event) throws IOException {
         FxmlLoader fxmlLoader = new FxmlLoader();
-        fxmlLoader.changePage("registerPage", event);
+        fxmlLoader.changePage("reservationPage", event);
     }
 
     @FXML
-    void btnLoginClicked(ActionEvent event) throws IOException {
+    void btnReservationsClicked(ActionEvent event) throws IOException {
         FxmlLoader fxmlLoader = new FxmlLoader();
-        fxmlLoader.changePage("loginPage", event);
+        fxmlLoader.changePage("MyReservationPage", event);
+    }
+
+    @FXML
+    void btnParametresClicked(ActionEvent event) throws IOException {
+        FxmlLoader fxmlLoader = new FxmlLoader();
+        fxmlLoader.changePage("paramsPage", event);
     }
 }

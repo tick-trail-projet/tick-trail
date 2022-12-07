@@ -1,5 +1,6 @@
 package com.ticktrail.user;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public interface UserInterface {
 
     public boolean exist(String email);
 
-    public void login(String email, String password);
+    public void login(String email) throws IOException;
 
-    public void logout(String id);
+    public void logout() throws IOException;
 }

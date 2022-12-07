@@ -97,12 +97,4 @@ public class Mysql {
             return Collections.emptyMap();
         }
     }
-
-    public static void main(String[] args) throws SQLException {
-        Mysql test = new Mysql();
-        // Map<String, Object> test_query = test.getQuery("SELECT * FROM user WHERE id =
-        // \"717729969395990548\"");
-        // System.out.println(test_query.get("alt"));
-        System.out.println(test.getSingleQuery("SELECT * FROM users WHERE id = \"4\""));
-    }
 }

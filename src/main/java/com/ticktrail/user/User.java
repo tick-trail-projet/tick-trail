@@ -1,10 +1,14 @@
 package com.ticktrail.user;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 import com.ticktrail.database.Mysql;
+import com.ticktrail.database.Storage;
 
 public class User extends Mysql implements UserInterface {
 
@@ -29,10 +33,11 @@ public class User extends Mysql implements UserInterface {
             String city) {
         if (exist(email) == false) {
             super.runQuery(
-                    "INSERT INTO `users`(`name`, `password`, `surname`, `phone`, `email`, `adress`, `city`) VALUES ('"
+                    "INSERT INTO `users`(`name`, `password`, `surname`, `phone`, `email`, `adress`, `city`, `token`) VALUES ('"
                             + name
                             + "','" + password
-                            + "','" + surname + "','" + phone + "','" + email + "','" + adress + "','" + city + "')");
+                            + "','" + surname + "','" + phone + "','" + email + "','" + adress + "','" + city + "','"
+                            + generateToken() + "')");
         }
     }
 
@@ -55,12 +60,37 @@ public class User extends Mysql implements UserInterface {
         }
     }
 
-    public void login(String email, String password) {
-
+    public Map<String, Object> getWithToken() throws IOException {
+        Storage storage = new Storage("./src/main/java/com/ticktrail/database/session.txt");
+        String token = storage.read_file();
+        Map<String, Object> user = super.getSingleQuery(
+                "SELECT * FROM users WHERE users.token = \"" + token + "\"");
+        return user;
     }
 
-    public void logout(String id) {
-        System.out.println("test");
+    public void login(String email) throws IOException {
+        if (exist(email)) {
+            Storage storage = new Storage("./src/main/java/com/ticktrail/database/session.txt");
+            storage.write_file(get(email).get("token").toString());
+        }
+    }
+
+    public boolean isLogin() throws IOException {
+        Storage storage = new Storage("./src/main/java/com/ticktrail/database/session.txt");
+        String token = storage.read_file();
+        Map<String, Object> user = super.getSingleQuery(
+                "SELECT users.token FROM users WHERE users.token = \"" + token + "\"");
+        return user.isEmpty() ? false : true;
+    }
+
+    public void logout() throws IOException {
+        Storage storage = new Storage("./src/main/java/com/ticktrail/database/session.txt");
+        storage.clear_file();
+    }
+
+    public String generateToken() {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
     }
 
     public static void main(String[] args) {

@@ -1,7 +1,10 @@
 package com.ticktrail.controllers;
 
+import java.io.IOException;
+
 import org.mindrot.jbcrypt.BCrypt;
 
+import com.ticktrail.FxmlLoader;
 import com.ticktrail.user.User;
 
 import javafx.event.ActionEvent;
@@ -35,7 +38,7 @@ public class Register {
     Button loginButton;
 
     @FXML
-    void btnOnRegisterClicked(ActionEvent event) {
+    void btnOnRegisterClicked(ActionEvent event) throws IOException {
         if (email != null) {
             System.out.println(email);
             User user = new User();
@@ -46,6 +49,9 @@ public class Register {
                     user.create(name.getText(), hashPassword(password.getText()), surname.getText(), phone.getText(),
                             email.getText(), null, null);
                     System.out.println("ici");
+                    user.login(email.getText());
+                    FxmlLoader fxmlLoader = new FxmlLoader();
+                    fxmlLoader.changePage("homePage", event);
                 }
             } else {
                 System.out.println("User already exist");

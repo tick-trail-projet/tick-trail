@@ -19,14 +19,14 @@
         </TextField>
       </children>
     </Pane>
-    <Pane layoutX="254.0" layoutY="83.0" prefHeight="418.0" prefWidth="630.0" style="-fx-background-color: #6b87a3;">
+    <Pane layoutX="255.0" layoutY="83.0" prefHeight="418.0" prefWidth="629.0" style="-fx-background-color: #6b87a3;">
       <children>
         <Text fill="WHITE" layoutX="271.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER" wrappingWidth="87.73675537109375">
           <font>
             <Font size="18.0" />
           </font>
         </Text>
-        <TextField id="email" fx:id="email" alignment="CENTER" layoutX="59.0" layoutY="26.0" prefHeight="35.0" prefWidth="513.0" style="-fx-background-color: #2c3e50;" />
+        <TextField id="email" fx:id="email" alignment="CENTER" layoutX="59.0" layoutY="26.0" prefHeight="35.0" prefWidth="524.0" style="-fx-background-color: #2c3e50;" />
         <Text fill="WHITE" layoutX="131.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="CENTER" wrappingWidth="97.33673095703125">
           <font>
             <Font size="18.0" />
@@ -44,13 +44,13 @@
             <Font size="18.0" />
           </font>
         </Text>
-        <TextField id="phone" fx:id="phone" layoutX="58.0" layoutY="167.0" prefHeight="35.0" prefWidth="513.0" style="-fx-background-color: #2c3e50;" />
+        <TextField id="phone" fx:id="phone" layoutX="58.0" layoutY="167.0" prefHeight="35.0" prefWidth="524.0" style="-fx-background-color: #2c3e50;" />
         <Text fill="WHITE" layoutX="238.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" textAlignment="CENTER" wrappingWidth="156.5367431640625">
           <font>
             <Font size="18.0" />
           </font>
         </Text>
-        <TextField id="location" fx:id="location" layoutX="58.0" layoutY="240.0" prefHeight="35.0" prefWidth="513.0" style="-fx-background-color: #2c3e50;" />
+        <TextField id="location" fx:id="location" layoutX="58.0" layoutY="240.0" prefHeight="35.0" prefWidth="524.0" style="-fx-background-color: #2c3e50;" />
         <Text fill="WHITE" layoutX="131.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="97.33673095703125">
           <font>
             <Font size="18.0" />

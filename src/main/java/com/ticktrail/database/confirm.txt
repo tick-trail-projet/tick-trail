@@ -1,1 +1,1 @@
-5$,Blois,Tours,1h,2h
+45,BLOIS,RENNES,2022-12-10 20h,2022-12-10 23h

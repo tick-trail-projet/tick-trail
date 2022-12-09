@@ -33,7 +33,8 @@ public class SelectTrain implements Initializable {
     @FXML
     void btnOnPaidClicked(ActionEvent event) throws IOException {
         Book book = new Book();
-        book.bookTrain(from.getText(), to.getText(), from_schedule.getText(), to_schedule.getText());
+        book.bookTrain(Integer.parseInt(price.getText()), from.getText(), to.getText(), from_schedule.getText(),
+                to_schedule.getText());
         FxmlLoader fxmlLoader = new FxmlLoader();
         fxmlLoader.changePage("MyReservationPage", event);
     }

@@ -78,23 +78,14 @@ public class Mysql {
      * @return the query result in a map
      *
      */
-    public Map<String, Object> getQuery(String query) {
+    public ResultSet getQuery(String query) {
         try {
             Statement st = this.con.createStatement();
             ResultSet rs = st.executeQuery(query);
-            ResultSetMetaData metadata = rs.getMetaData();
-            int columns = metadata.getColumnCount();
-            Map<String, Object> result_in_map = new HashMap<>();
-            while (rs.next()) {
-                for (int i = 1; i <= columns; ++i) {
-                    result_in_map.put(metadata.getColumnName(i), rs.getObject(i));
-                    System.out.println(metadata.getColumnName(i) + " " + rs.getObject(i));
-                }
-            }
-            return result_in_map;
+            return rs;
         } catch (SQLException e) {
             e.printStackTrace();
-            return Collections.emptyMap();
+            return null;
         }
     }
 }

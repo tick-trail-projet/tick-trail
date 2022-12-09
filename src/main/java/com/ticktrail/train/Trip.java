@@ -1,13 +1,13 @@
 package com.ticktrail.train;
 
 public class Trip {
-    public String from;
-    public String to;
-    public String price;
-    public String from_schedule;
-    public String to_schedule;
+    private String from;
+    private String to;
+    private int price;
+    private String from_schedule;
+    private String to_schedule;
 
-    public Trip(String from, String to, String price, String from_schedule, String to_schedule) {
+    public Trip(String from, String to, int price, String from_schedule, String to_schedule) {
         this.from = from;
         this.to = to;
         this.price = price;
@@ -31,11 +31,11 @@ public class Trip {
         this.to = to;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return this.price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -65,7 +65,7 @@ public class Trip {
         return this;
     }
 
-    public Trip price(String price) {
+    public Trip price(int price) {
         setPrice(price);
         return this;
     }

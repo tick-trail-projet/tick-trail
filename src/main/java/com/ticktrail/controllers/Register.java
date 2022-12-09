@@ -47,7 +47,7 @@ public class Register {
                 if (password.getText().equals(confirm_password.getText())) {
                     System.out.println("same password");
                     user.create(name.getText(), hashPassword(password.getText()), surname.getText(), phone.getText(),
-                            email.getText(), null, null);
+                            email.getText(), localion.getText(), localion.getText());
                     System.out.println("ici");
                     user.login(email.getText());
                     FxmlLoader fxmlLoader = new FxmlLoader();

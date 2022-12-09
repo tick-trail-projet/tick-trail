@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.ticktrail.FxmlLoader;
 import com.ticktrail.database.Storage;
+import com.ticktrail.train.Reservation;
 import com.ticktrail.train.Trip;
 
 import javafx.collections.FXCollections;
@@ -37,9 +38,13 @@ public class TrainAvailable implements Initializable {
     @FXML
     private TableColumn<Trip, String> to_schedule;
 
-    ObservableList<Trip> list = FXCollections.observableArrayList(
-            new Trip("Blois", "Paris", "5$", "1h", "2h"),
-            new Trip("Blois", "Tours", "5$", "1h", "2h"));
+    public ObservableList<Trip> tab() throws IOException {
+        Reservation reservation = new Reservation();
+        Storage storage = new Storage("./src/main/java/com/ticktrail/database/trip.txt");
+        return FXCollections.observableArrayList(
+                reservation.simulation(storage.read_file().split(",")[0], storage.read_file().split(",")[1],
+                        storage.read_file().split(",")[2]));
+    }
 
     @FXML
     public void clickItem(MouseEvent event) throws IOException {
@@ -65,7 +70,11 @@ public class TrainAvailable implements Initializable {
         price.setCellValueFactory(new PropertyValueFactory<Trip, String>("price"));
         from_schedule.setCellValueFactory(new PropertyValueFactory<Trip, String>("from_schedule"));
         to_schedule.setCellValueFactory(new PropertyValueFactory<Trip, String>("to_schedule"));
-        table.setItems(list);
+        try {
+            table.setItems(tab());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

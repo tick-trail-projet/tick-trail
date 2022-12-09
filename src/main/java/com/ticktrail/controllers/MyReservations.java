@@ -49,6 +49,15 @@ public class MyReservations implements Initializable {
     @FXML
     public void clickItem(MouseEvent event) throws IOException {
         if (event.getClickCount() == 1) {
+            Storage storage = new Storage("./src/main/java/com/ticktrail/database/confirm.txt");
+            storage.write_file(
+                    table.getSelectionModel().getSelectedItem().getPrice() + "," +
+                            table.getSelectionModel().getSelectedItem().getFrom() + "," +
+                            table.getSelectionModel().getSelectedItem().getTo() + "," +
+                            table.getSelectionModel().getSelectedItem().getFrom_schedule() + "," +
+                            table.getSelectionModel().getSelectedItem().getTo_schedule()
+
+            );
             FxmlLoader fxmlLoader = new FxmlLoader();
             fxmlLoader.changePage("editReservation", event);
         }

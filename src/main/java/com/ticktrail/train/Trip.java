@@ -15,6 +15,10 @@ public class Trip {
         this.to_schedule = to_schedule;
     }
 
+    public Trip() {
+
+    }
+
     public String getFrom() {
         return this.from;
     }

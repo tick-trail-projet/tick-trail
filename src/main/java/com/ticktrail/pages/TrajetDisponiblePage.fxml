@@ -26,8 +26,8 @@
             <TableColumn fx:id="price" prefWidth="104.0" text="Prix" />
             <TableColumn fx:id="from" prefWidth="115.199951171875" text="Départ" />
             <TableColumn fx:id="to" prefWidth="125.60000610351562" text="Arrivée" />
-            <TableColumn fx:id="from_schedule" prefWidth="147.199951171875" text="Heure Départ" />
-            <TableColumn fx:id="to_schedule" prefWidth="136.0" text="Heure Arrivée" />
+            <TableColumn fx:id="from_schedule" prefWidth="147.199951171875" text="Date Départ" />
+            <TableColumn fx:id="to_schedule" prefWidth="136.0" text="Date Arrivée" />
           </columns>
         </TableView>
       </children>

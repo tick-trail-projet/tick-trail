@@ -10,13 +10,14 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.mysql.cj.protocol.Resultset;
-
+/**
+ * classe decrivant la gestion de la relation a la base de donnees
+ */
 public class Mysql {
     Connection con = null;
-
+	
     /**
-     * Connection to the mysql database and initialize the con variable
+     * connection a la base de donnees et initialisation de la connection
      */
     public Mysql() {
         String url = "jdbc:mysql://localhost:3306/ticktrail?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -29,9 +30,9 @@ public class Mysql {
     }
 
     /**
-     * Execute a query without return.
+     * Execution d une requete sans resultat
      * 
-     * @param String query
+     * @param query requete
      * @return void
      */
 
@@ -45,13 +46,12 @@ public class Mysql {
     }
 
     /**
-     * Execute a query with return.
+     * Execution d une requete avec resultat.
      * 
-     * @param String query
-     * @return Map<String, Object>
+     * @param query requete
+     * @return Map<String, Object> resultat de la requete sous forme de map
      *
      */
-
     public Map<String, Object> getSingleQuery(String query) {
         try {
             Statement st = this.con.createStatement();
@@ -72,11 +72,10 @@ public class Mysql {
     }
 
     /**
-     * Execute a query with a return.
+     * EExecution d une requete avec resultat.
      * 
-     * @param String query
-     * @return the query result in a map
-     *
+     * @param query requete
+     * @return resultat de la requete sous forme de resultset
      */
     public ResultSet getQuery(String query) {
         try {

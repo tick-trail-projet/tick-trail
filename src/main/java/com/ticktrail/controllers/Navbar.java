@@ -4,22 +4,19 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.ticktrail.App;
 import com.ticktrail.FxmlLoader;
+import com.ticktrail.basic.Notification;
 import com.ticktrail.stage.ControlledStage;
 import com.ticktrail.user.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
+/**
+ * classe decrivant les actions possibles de l'utilisateur
+ */
 public class Navbar implements Initializable {
     @FXML
     private Button login;
@@ -38,37 +35,73 @@ public class Navbar implements Initializable {
 
     @FXML
     private Button logout;
-
+	
+	/**
+	 * reservation du trajet
+	 *
+	 * @param event evenemenent
+	 * @throws IOException Si une erreur de lecture/ecriture arrive
+	 */
     @FXML
     void btnReserverClicked(ActionEvent event) throws IOException {
         FxmlLoader fxmlLoader = new FxmlLoader();
         fxmlLoader.changePage("reservationPage", event);
     }
-
+	
+	/**
+	 * liste les reservations de l'utilisateur
+	 *
+	 * @param event evenement
+	 * @throws IOException Si une erreur de lecture/ecriture arrive
+	 */
     @FXML
     void btnReservationsClicked(ActionEvent event) throws IOException {
         FxmlLoader fxmlLoader = new FxmlLoader();
         fxmlLoader.changePage("MyReservationPage", event);
     }
-
+	
+	/**
+	 * liste les parametres
+	 *
+	 * @param event evenement
+	 * @throws IOException Si une erreur de lecture/ecriture arrive
+	 */
     @FXML
     void btnParametresClicked(ActionEvent event) throws IOException {
         FxmlLoader fxmlLoader = new FxmlLoader();
         fxmlLoader.changePage("paramsPage", event);
     }
-
+	
+	/**
+	 * connection de l'utilisateur
+	 *
+	 * @param event evenement
+	 * @throws IOException Si une erreur de lecture/ecriture arrive
+	 */
     @FXML
     void btnLoginClicked(ActionEvent event) throws IOException {
         FxmlLoader fxmlLoader = new FxmlLoader();
         fxmlLoader.changePage("loginPage", event);
     }
-
+	
+	/**
+	 * Enregistrement de l'utilisateur
+	 *
+	 * @param event evenement
+	 * @throws IOException Si une erreur de lecture/ecriture arrive
+	 */
     @FXML
     void btnRegisterClicked(ActionEvent event) throws IOException {
         FxmlLoader fxmlLoader = new FxmlLoader();
         fxmlLoader.changePage("registerPage", event);
     }
-
+	
+	/**
+	 * deconnection de l'utlisateur
+	 *
+	 * @param event evenement
+	 * @throws IOException Si une erreur de lecture/ecriture arrive
+	 */
     @FXML
     void btnLogoutClicked(ActionEvent event) throws IOException {
         User user = new User();
@@ -76,7 +109,13 @@ public class Navbar implements Initializable {
         FxmlLoader fxmlLoader = new FxmlLoader();
         fxmlLoader.changePage("homePage", event);
     }
-
+	
+	/**
+	 * Gestion de la visibilte des boutons
+	 *
+	 * @param url url
+	 * @param rb resourcebundle
+	 */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         User user = new User();
@@ -97,7 +136,6 @@ public class Navbar implements Initializable {
                 reservations.setVisible(false);
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

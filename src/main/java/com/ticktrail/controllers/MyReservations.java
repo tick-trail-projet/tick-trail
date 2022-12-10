@@ -3,7 +3,6 @@ package com.ticktrail.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.ticktrail.FxmlLoader;
@@ -20,6 +19,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * classe decrivant les actions possibles sur le choix de reservation de l'utilisateur
+ */
 public class MyReservations implements Initializable {
 
     @FXML
@@ -39,30 +41,50 @@ public class MyReservations implements Initializable {
 
     @FXML
     private TableColumn<Trip, String> to_schedule;
-
+	
+	/**
+	 * AJout de la reservation de l'utilisateur dans sa liste
+	 *
+	 * @return la liste des reservations de l'utilisateur
+	 * @throws IOException Si une erreur de lecture/ecriture arrive
+	 * @throws SQLException probleme Bdd
+	 */
     public ObservableList<Trip> tab() throws IOException, SQLException {
         Reservation reservation = new Reservation();
         return FXCollections.observableArrayList(
                 reservation.MyReservation());
     }
-
+	
+	/**
+	 * sauvegarde de la reservation
+	 *
+	 * @param event evenement
+	 * @throws IOException Si une erreur de lecture/ecriture arrive
+	 */
     @FXML
     public void clickItem(MouseEvent event) throws IOException {
         if (event.getClickCount() == 1) {
-            Storage storage = new Storage("./src/main/java/com/ticktrail/database/confirm.txt");
-            storage.write_file(
-                    table.getSelectionModel().getSelectedItem().getPrice() + "," +
-                            table.getSelectionModel().getSelectedItem().getFrom() + "," +
-                            table.getSelectionModel().getSelectedItem().getTo() + "," +
-                            table.getSelectionModel().getSelectedItem().getFrom_schedule() + "," +
-                            table.getSelectionModel().getSelectedItem().getTo_schedule()
+            if (table.getSelectionModel() != null) {
+                Storage storage = new Storage("./src/main/java/com/ticktrail/database/confirm.txt");
+                storage.write_file(
+                        table.getSelectionModel().getSelectedItem().getPrice() + "," +
+                                table.getSelectionModel().getSelectedItem().getFrom() + "," +
+                                table.getSelectionModel().getSelectedItem().getTo() + "," +
+                                table.getSelectionModel().getSelectedItem().getFrom_schedule() + "," +
+                                table.getSelectionModel().getSelectedItem().getTo_schedule()
 
-            );
-            FxmlLoader fxmlLoader = new FxmlLoader();
-            fxmlLoader.changePage("editReservation", event);
+                );
+                FxmlLoader fxmlLoader = new FxmlLoader();
+                fxmlLoader.changePage("editReservation", event);
+            }
         }
     }
-
+	
+	/**
+	 * creation de la reservation de l'utilisateur
+	 * @param url url
+	 * @param rb resourcebundle
+	 */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         from.setCellValueFactory(new PropertyValueFactory<Trip, String>("from"));

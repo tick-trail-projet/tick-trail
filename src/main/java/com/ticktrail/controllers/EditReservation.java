@@ -12,9 +12,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
-import javafx.scene.layout.Pane;
 
+/**
+ * classe decrivant les actions possibles sur la reservation
+ */
 public class EditReservation implements Initializable {
     @FXML
     TextField price;
@@ -30,7 +31,13 @@ public class EditReservation implements Initializable {
 
     @FXML
     TextField to_schedule;
-
+	
+	/**
+	 * suppression de la reservation
+	 *
+	 * @param event evenement de suppression
+	 * @throws IOException Si une erreur de lecture/ecriture arrive
+	 */
     @FXML
     void btnOnDeleteClicked(ActionEvent event) throws IOException {
         Reservation reservation = new Reservation();
@@ -39,7 +46,13 @@ public class EditReservation implements Initializable {
         FxmlLoader fxmlLoader = new FxmlLoader();
         fxmlLoader.changePage("MyReservationPage", event);
     }
-
+	
+	/**
+	 * initialisation de la reservation
+	 *
+	 * @param url url
+	 * @param rb resourcebundle
+	 */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {

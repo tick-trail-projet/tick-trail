@@ -1,18 +1,17 @@
 package com.ticktrail.stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
-
-import com.ticktrail.App;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
+/**
+ *
+ */
 public class ControlledStage {
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();;
 

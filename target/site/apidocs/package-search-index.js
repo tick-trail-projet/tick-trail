@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.ticktrail"},{"l":"com.ticktrail.basic"},{"l":"com.ticktrail.controllers"},{"l":"com.ticktrail.database"},{"l":"com.ticktrail.train"},{"l":"com.ticktrail.user"}];updateSearchResults();

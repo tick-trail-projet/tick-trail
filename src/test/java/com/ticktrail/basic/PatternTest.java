@@ -20,7 +20,7 @@ class PatternTest {
 	
 	@Test
 	void checkPassword() {
-		assertTrue(pattern.checkPassword("=s01545r4reerr"));
+		assertTrue(pattern.checkPassword("=LeoAndert41@"));
 	}
 	
 	@Test

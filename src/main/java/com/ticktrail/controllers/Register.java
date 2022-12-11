@@ -104,7 +104,7 @@ public class Register {
                     }
                 } else {
                     Notification notification = new Notification("Erreur",
-                            "Merci de bien vouloir entrer un mot de passe avec des lettres et des chiffres au moins un caractere special et au moins une majuscule avec au minimum 5 caracteres et au maximum 20 caracteres.",
+                            "Merci de bien vouloir entrer un mot de passe avec des lettres, chiffres, au minimum un caractere special et une majuscule avec au minimum 5 caracteres.",
                             "error");
                     notification.runNotification();
                 }

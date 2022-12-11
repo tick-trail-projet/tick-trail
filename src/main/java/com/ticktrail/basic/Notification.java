@@ -20,9 +20,9 @@ public class Notification {
 	/**
 	 * constructeur
 	 *
-	 * @param title libellé de l'erreur
-	 * @param text  descriptif de l'erreur
-	 * @param type  type de l'erreur
+	 * @param title libellé de la notification
+	 * @param text  descriptif de la notification
+	 * @param type  type erreur ou success
 	 */
 	public Notification(String title, String text, String type) {
 		this.title = title;

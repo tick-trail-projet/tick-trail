@@ -96,7 +96,9 @@ public class TrainAvailable implements Initializable {
         to_schedule.setCellValueFactory(new PropertyValueFactory<Trip, String>("to_schedule"));
         try {
             table.setItems(tab());
-        } catch (IOException | ParseException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
     }

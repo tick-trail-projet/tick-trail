@@ -15,28 +15,6 @@ import javafx.stage.Stage;
  * Gestion du chargement du Fxml
  */
 public class FxmlLoader {
-
-    private Pane view;
-	
-	/**
-	 * retourne la page
-	 * @param fileName nom de la page
-	 * @return la vue
-	 */
-    public Pane getPage(String fileName) {
-        try {
-            URL fileUrl = App.class.getResource("/pages/" + fileName + ".fxml");
-            if (fileUrl == null) {
-                throw new java.io.FileNotFoundException("FXML file can't be found");
-            }
-
-            view = new FXMLLoader().load(fileUrl);
-        } catch (Exception e) {
-            System.out.println("This page doesn't exist please check /pages/ folder");
-        }
-        return view;
-    }
-	
 	/**
 	 * change de page
 	 * @param fileName nom de la page

@@ -6,6 +6,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import com.ticktrail.FxmlLoader;
 import com.ticktrail.basic.Notification;
+import com.ticktrail.basic.Password;
 import com.ticktrail.basic.Pattern;
 import com.ticktrail.user.User;
 
@@ -39,12 +40,12 @@ public class Register {
     @FXML
     TextField phone;
 
-	/**
-	 * Enregistrement de l'utilisateur
-	 *
-	 * @param event evenement
-	 * @throws IOException Si une erreur de lecture/ecriture arrive
-	 */
+    /**
+     * Enregistrement de l'utilisateur
+     *
+     * @param event evenement
+     * @throws IOException Si une erreur de lecture/ecriture arrive
+     */
     @FXML
     void btnOnRegisterClicked(ActionEvent event) throws IOException {
         if (email != null) {
@@ -58,7 +59,8 @@ public class Register {
                                 if (pattern.checkName(name.getText())) {
                                     if (pattern.checkSurname(surname.getText())) {
                                         if (password.getText().equals(confirm_password.getText())) {
-                                            user.create(name.getText(), hashPassword(password.getText()),
+                                            Password hashPassword = new Password();
+                                            user.create(name.getText(), hashPassword.hashPassword(password.getText()),
                                                     surname.getText(),
                                                     phone.getText(),
                                                     email.getText(), loc.getText());
@@ -112,16 +114,5 @@ public class Register {
                 notification.runNotification();
             }
         }
-    }
-	
-	/**
-	 * hashage du mot de passe
-	 *
-	 * @param password mot de passe a hasher
-	 * @return le mot de passe hashe
-	 */
-    public String hashPassword(String password) {
-        String passwd = BCrypt.hashpw(password, BCrypt.gensalt());
-        return passwd;
     }
 }

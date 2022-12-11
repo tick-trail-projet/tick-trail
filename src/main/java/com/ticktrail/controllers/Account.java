@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.ticktrail.basic.Notification;
+import com.ticktrail.basic.Password;
 import com.ticktrail.basic.Pattern;
 import com.ticktrail.database.Mysql;
 import com.ticktrail.database.Storage;
@@ -38,13 +39,13 @@ public class Account implements Initializable {
 
     @FXML
     TextField surname;
-	
-	/**
-	 * Mise a jour du compte utilisateur suite a un evenement
-	 *
-	 * @param event evenement
-	 * @throws IOException Si une erreur de lecture/ecriture arrive
-	 */
+
+    /**
+     * Mise a jour du compte utilisateur suite a un evenement
+     *
+     * @param event evenement
+     * @throws IOException Si une erreur de lecture/ecriture arrive
+     */
     @FXML
     void btnOnEditClicked(ActionEvent event) throws IOException {
         Mysql mysql = new Mysql();
@@ -62,8 +63,10 @@ public class Account implements Initializable {
 
         if (password.getText() != null) {
             if (pattern.checkPassword(password.getText())) {
+                Password passwordHash = new Password();
                 mysql.runQuery(
-                        "UPDATE users SET password = \"" + hashPassword(password.getText()) + "\" WHERE token = \""
+                        "UPDATE users SET password = \"" + passwordHash.hashPassword(password.getText())
+                                + "\" WHERE token = \""
                                 + token
                                 + "\"");
             } else {
@@ -120,24 +123,13 @@ public class Account implements Initializable {
             }
         }
     }
-	
-	/**
-	 * Hashe le mot de passe
-	 *
-	 * @param password mot de passe
-	 * @return le mot de passe hashé
-	 */
-    public String hashPassword(String password) {
-        String passwd = BCrypt.hashpw(password, BCrypt.gensalt());
-        return passwd;
-    }
-	
-	/**
-	 * initialise le compte de l'utilisateur
-	 *
-	 * @param url url
-	 * @param rb resourcebundle
-	 */
+
+    /**
+     * initialise le compte de l'utilisateur
+     *
+     * @param url url
+     * @param rb  resourcebundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         User user = new User();

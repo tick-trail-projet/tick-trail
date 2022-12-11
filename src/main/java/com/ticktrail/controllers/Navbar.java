@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import com.ticktrail.FxmlLoader;
 import com.ticktrail.basic.Notification;
-import com.ticktrail.stage.ControlledStage;
 import com.ticktrail.user.User;
 
 import javafx.event.ActionEvent;

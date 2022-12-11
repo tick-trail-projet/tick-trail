@@ -66,7 +66,7 @@ public class Register {
                                                     email.getText(), loc.getText());
                                             user.login(email.getText());
                                             FxmlLoader fxmlLoader = new FxmlLoader();
-                                            fxmlLoader.changePage("homePage", event);
+                                            fxmlLoader.changePage("reservationPage", event);
                                             Notification notification = new Notification("Notification",
                                                     "Votre compte a été crée avec success.",
                                                     "success");

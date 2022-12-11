@@ -3,11 +3,15 @@ package com.ticktrail.train;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 
+import com.ticktrail.basic.DateChecker;
 import com.ticktrail.database.Mysql;
 import com.ticktrail.user.User;
 
@@ -62,26 +66,33 @@ public class Reservation extends Mysql {
      * @param to            destination
      * @param from_schedule heure de depart
      * @return list de trajet disponible
+     * @throws ParseException
      */
-    public ArrayList<Trip> simulation(String from, String to, String from_schedule) {
+    public ArrayList<Trip> simulation(String from, String to, String from_schedule) throws ParseException {
         double number = randomNumber(2, 10);
-        ArrayList<Trip> list = new ArrayList<>();
+        ArrayList<Trip> list = new ArrayList<Trip>();
         for (int i = 0; i < number; i++) {
             Cities city_from = new Cities(from);
             Cities city_to = new Cities(to);
             int randomNumber = randomNumber(Integer.parseInt(
                     new SimpleDateFormat("HH").format(Calendar.getInstance().getTime())), 23);
+            Calendar calendar = Calendar.getInstance();
+            DateChecker dateChecker = new DateChecker(from_schedule);
+            Map<String, Integer> dateDecompose = dateChecker.decompose();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            String date_String = dateDecompose.get("year") + "-" + dateDecompose.get("month") + "-" +
+                    dateDecompose.get("day");
+            Date date = formatter.parse(date_String);
+            calendar.setTime(date);
+            calendar.add(Calendar.HOUR_OF_DAY, +(randomNumber + city_from.calculeSchedule(city_to)));
             list.add(
                     new Trip(from, to, city_from.calculatePrice(city_to),
                             from_schedule + " "
                                     + randomNumber
                                     + "h",
-                            +(randomNumber + city_from.calculeSchedule(city_to) == 24 ? 00
-                                    : (randomNumber + city_from.calculeSchedule(city_to) > 24
-                                            ? randomNumber + city_from.calculeSchedule(city_to) - 24
-                                            : randomNumber + city_from.calculeSchedule(city_to)))
-                                    + "h"));
+                            new SimpleDateFormat("yyyy-MM-dd HH").format(calendar.getTime()) + "h"));
         }
+
         return list;
     }
 
@@ -121,10 +132,8 @@ public class Reservation extends Mysql {
         return list;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         Reservation reservation = new Reservation();
-        System.out.println(reservation.randomNumber(Integer.parseInt(
-                new SimpleDateFormat("HH").format(Calendar.getInstance().getTime())), 24));
-
+        reservation.simulation("BLOIS", "PARIS", "2022-12-07");
     }
 }

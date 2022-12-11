@@ -28,13 +28,13 @@ public class Book {
 
     @FXML
     DatePicker date;
-	
-	/**
-	 * stockage de la reservation
-	 *
-	 * @param event evenement
-	 * @throws IOException Si une erreur de lecture/ecriture arrive
-	 */
+
+    /**
+     * stockage de la reservation
+     *
+     * @param event evenement
+     * @throws IOException Si une erreur de lecture/ecriture arrive
+     */
     @FXML
     void btnBookNowClicked(ActionEvent event) throws IOException {
         if (from.getText() != null) {
@@ -49,18 +49,25 @@ public class Book {
                                     + "%\" LIMIT 1");
                     if (city_from.get("name") != null) {
                         if (city_to.get("name") != null) {
-                            DateChecker DateChecker = new DateChecker(date.getValue().toString());
-                            if (DateChecker.isValid()) {
-                                Storage storage = new Storage("./src/main/java/com/ticktrail/database/trip.txt");
-                                storage.write_file(
-                                        city_from.get("name").toString().toUpperCase() + ","
-                                                + city_to.get("name").toString().toUpperCase() + ","
-                                                + date.getValue());
-                                FxmlLoader fxmlLoader = new FxmlLoader();
-                                fxmlLoader.changePage("TrajetDisponiblePage", event);
+                            if (!city_to.get("name").equals(city_from.get("name"))) {
+                                DateChecker DateChecker = new DateChecker(date.getValue().toString());
+                                if (DateChecker.isValid()) {
+                                    Storage storage = new Storage("./src/main/java/com/ticktrail/database/trip.txt");
+                                    storage.write_file(
+                                            city_from.get("name").toString().toUpperCase() + ","
+                                                    + city_to.get("name").toString().toUpperCase() + ","
+                                                    + date.getValue());
+                                    FxmlLoader fxmlLoader = new FxmlLoader();
+                                    fxmlLoader.changePage("TrajetDisponiblePage", event);
+                                } else {
+                                    Notification notification = new Notification("Erreur",
+                                            "Merci de fournir une date valide.",
+                                            "error");
+                                    notification.runNotification();
+                                }
                             } else {
                                 Notification notification = new Notification("Erreur",
-                                        "Merci de fournir une date valide.",
+                                        "Merci de fournir une ville differente.",
                                         "error");
                                 notification.runNotification();
                             }

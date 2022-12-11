@@ -106,7 +106,7 @@ public class Navbar implements Initializable {
         User user = new User();
         user.logout();
         FxmlLoader fxmlLoader = new FxmlLoader();
-        fxmlLoader.changePage("homePage", event);
+        fxmlLoader.changePage("reservationPage", event);
     }
 	
 	/**

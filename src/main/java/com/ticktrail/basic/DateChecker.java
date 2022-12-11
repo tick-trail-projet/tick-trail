@@ -10,19 +10,21 @@ import java.util.Map;
  */
 public class DateChecker {
     private String date;
-	
-	/**
-	 * constructeur
-	 * @param date date
-	 */
+
+    /**
+     * constructeur
+     * 
+     * @param date date
+     */
     public DateChecker(String date) {
         this.date = date;
     }
-	
-	/**
-	 * verifie si la date est valide
-	 * @return true si la date est valide sinon false
-	 */
+
+    /**
+     * verifie si la date est valide
+     * 
+     * @return true si la date est valide sinon false
+     */
     public boolean isValid() {
         Map<String, Integer> decompose = this.decompose();
         if (decompose.get("year") < Integer.parseInt(new SimpleDateFormat("yyyy")
@@ -48,11 +50,12 @@ public class DateChecker {
 
         return true;
     }
-	
-	/**
-	 * decompose la date sous forme de map
-	 * @return la date sous forme de map
-	 */
+
+    /**
+     * decompose la date sous forme de map
+     * 
+     * @return la date sous forme de map
+     */
     public Map<String, Integer> decompose() {
         Map<String, Integer> map = new HashMap<>();
         Integer years = Integer.parseInt(this.getDate().split("-")[0]);
@@ -63,35 +66,33 @@ public class DateChecker {
         map.put("day", days);
         return map;
     }
-	
-	/**
-	 * retourne la date
-	 * @return la date
-	 */
+
+    /**
+     * retourne la date
+     * 
+     * @return la date
+     */
     public String getDate() {
         return this.date;
     }
-	
-	/**
-	 * postionne la date
-	 * @param date la date
-	 */
+
+    /**
+     * postionne la date
+     * 
+     * @param date la date
+     */
     public void setDate(String date) {
         this.date = date;
     }
-	
-	/**
-	 * retourne une datechecker a partir d une string
-	 * @param date
-	 * @return une datechecker
-	 */
+
+    /**
+     * retourne une datechecker a partir d une string
+     * 
+     * @param date
+     * @return une datechecker
+     */
     public DateChecker date(String date) {
         setDate(date);
         return this;
-    }
-
-    public static void main(String[] args) {
-        DateChecker dateChecker = new DateChecker("2013-12-10 20h");
-        System.out.println(dateChecker.isValid());
     }
 }

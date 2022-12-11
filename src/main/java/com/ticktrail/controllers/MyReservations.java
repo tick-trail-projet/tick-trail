@@ -20,7 +20,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 /**
- * classe decrivant les actions possibles sur le choix de reservation de l'utilisateur
+ * classe decrivant les actions possibles sur le choix de reservation de
+ * l'utilisateur
  */
 public class MyReservations implements Initializable {
 
@@ -41,30 +42,30 @@ public class MyReservations implements Initializable {
 
     @FXML
     private TableColumn<Trip, String> to_schedule;
-	
-	/**
-	 * AJout de la reservation de l'utilisateur dans sa liste
-	 *
-	 * @return la liste des reservations de l'utilisateur
-	 * @throws IOException Si une erreur de lecture/ecriture arrive
-	 * @throws SQLException probleme Bdd
-	 */
+
+    /**
+     * AJout de la reservation de l'utilisateur dans sa liste
+     *
+     * @return la liste des reservations de l'utilisateur
+     * @throws IOException  Si une erreur de lecture/ecriture arrive
+     * @throws SQLException probleme Bdd
+     */
     public ObservableList<Trip> tab() throws IOException, SQLException {
         Reservation reservation = new Reservation();
         return FXCollections.observableArrayList(
                 reservation.MyReservation());
     }
-	
-	/**
-	 * sauvegarde de la reservation
-	 *
-	 * @param event evenement
-	 * @throws IOException Si une erreur de lecture/ecriture arrive
-	 */
+
+    /**
+     * sauvegarde de la reservation
+     *
+     * @param event evenement
+     * @throws IOException Si une erreur de lecture/ecriture arrive
+     */
     @FXML
     public void clickItem(MouseEvent event) throws IOException {
         if (event.getClickCount() == 1) {
-            if (table.getSelectionModel() != null) {
+            if (table.getSelectionModel() != null && table.getSelectionModel().getSelectedItem() != null) {
                 Storage storage = new Storage("./src/main/java/com/ticktrail/database/confirm.txt");
                 storage.write_file(
                         table.getSelectionModel().getSelectedItem().getPrice() + "," +
@@ -79,12 +80,13 @@ public class MyReservations implements Initializable {
             }
         }
     }
-	
-	/**
-	 * creation de la reservation de l'utilisateur
-	 * @param url url
-	 * @param rb resourcebundle
-	 */
+
+    /**
+     * creation de la reservation de l'utilisateur
+     * 
+     * @param url url
+     * @param rb  resourcebundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         from.setCellValueFactory(new PropertyValueFactory<Trip, String>("from"));

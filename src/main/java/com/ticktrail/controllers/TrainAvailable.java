@@ -2,6 +2,7 @@ package com.ticktrail.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 
 import com.ticktrail.FxmlLoader;
@@ -37,33 +38,35 @@ public class TrainAvailable implements Initializable {
 
     @FXML
     private TableColumn<Trip, String> from_schedule;
-	
+
     @FXML
     private TableColumn<Trip, String> to_schedule;
-	
-	/**
-	 * sauvegarde du trajet  dans la liste des trajets
-	 * @return liste des trajets
-	 * @throws IOException Si une erreur de lecture/ecriture arrive
-	 */
-    public ObservableList<Trip> tab() throws IOException {
+
+    /**
+     * sauvegarde du trajet dans la liste des trajets
+     * 
+     * @return liste des trajets
+     * @throws IOException    Si une erreur de lecture/ecriture arrive
+     * @throws ParseException
+     */
+    public ObservableList<Trip> tab() throws IOException, ParseException {
         Reservation reservation = new Reservation();
         Storage storage = new Storage("./src/main/java/com/ticktrail/database/trip.txt");
         return FXCollections.observableArrayList(
                 reservation.simulation(storage.read_file().split(",")[0], storage.read_file().split(",")[1],
                         storage.read_file().split(",")[2]));
     }
-	
-	/**
-	 * selection d'un train disponible
-	 *
-	 * @param event evenement
-	 * @throws IOException Si une erreur de lecture/ecriture arrive
-	 */
+
+    /**
+     * selection d'un train disponible
+     *
+     * @param event evenement
+     * @throws IOException Si une erreur de lecture/ecriture arrive
+     */
     @FXML
     public void clickItem(MouseEvent event) throws IOException {
         if (event.getClickCount() == 1) {
-            if (table.getSelectionModel() != null) {
+            if (table.getSelectionModel() != null && table.getSelectionModel().getSelectedItem() != null) {
                 Storage storage = new Storage("./src/main/java/com/ticktrail/database/confirm.txt");
                 storage.write_file(
                         table.getSelectionModel().getSelectedItem().getPrice() + "," +
@@ -77,13 +80,13 @@ public class TrainAvailable implements Initializable {
             }
         }
     }
-	
-	/**
-	 * creation d'un train disponible
-	 *
-	 * @param url url
-	 * @param rb resourcebundle
-	 */
+
+    /**
+     * creation d'un train disponible
+     *
+     * @param url url
+     * @param rb  resourcebundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         from.setCellValueFactory(new PropertyValueFactory<Trip, String>("from"));
@@ -93,7 +96,7 @@ public class TrainAvailable implements Initializable {
         to_schedule.setCellValueFactory(new PropertyValueFactory<Trip, String>("to_schedule"));
         try {
             table.setItems(tab());
-        } catch (IOException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }

@@ -39,7 +39,7 @@ public class Login {
                         (String) user.get(email.getText()).get("password"))) {
                     user.login(email.getText());
                     FxmlLoader fxmlLoader = new FxmlLoader();
-                    fxmlLoader.changePage("homePage", event);
+                    fxmlLoader.changePage("reservationPage", event);
                     Notification notification = new Notification("Notification",
                             "Vous vous etes connecté avec success.",
                             "success");

@@ -18,7 +18,7 @@ public class App extends Application {
 	 */
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("pages/HomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("pages/reservationPage.fxml"));
         root.getStylesheets().add(getClass().getResource("public/css/style.css").toExternalForm());
         primaryStage.setTitle("Tick&Trail");
         primaryStage.setScene(new Scene(root));

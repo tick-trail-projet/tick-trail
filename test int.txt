@@ -1,0 +1,27 @@
+tests d'intégration
+- Vérification des ensemble de fonctionnent : fonctionnent correctement ;
+
+
+--Approche du Big Bang:
+-Avantages de l'approche Big Bang:
+
+C'est une bonne approche pour les petits systèmes.(le cas de notre projet)
+
+L'approche Big Bang intègre tous les modules en une seule fois, 
+c'est-à-dire qu'elle ne va pas pour intégrer les modules un par un. 
+Il vérifie si le système fonctionne comme prévu ou pas une fois intégré.
+
+-Signalement des défauts : aucun ;
+
+--Intégration ascendante :
+L'avantage de cette approche est que,
+ si un défaut majeur existe au niveau de l'unité la plus basse du programme, 
+il est plus facile de le détecter et des mesures correctives peuvent être prises.
+
+Signalement des anomalies :aucune ;
+
+--Intégration descendante :
+Cette technique part du module le plus haut et progresse progressivement vers les modules inférieurs.
+ Seul le module supérieur est testé isolément. 
+Après cela, les modules inférieurs sont intégrés un par un. 
+Le processus est répété jusqu'à ce que tous les modules soient intégrés et testés.

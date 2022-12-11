@@ -1,0 +1,10 @@
+Junit
+JUnit est un framework open source pour le développement et l'exécution de tests unitaires automatisables.
+ Le principal intérêt est de s'assurer que le code répond toujours aux besoins même après d'éventuelles modifications. 
+Plus généralement, ce type de tests est appelé tests unitaires de non-régression.
+Avec JUnit, l'unité de test est une classe dédiée qui regroupe des cas de tests. 
+Ces cas de tests exécutent les tâches suivantes :
+
+-création d'une instance de la classe et de tout autre objet nécessaire aux tests
+-appel de la méthode à tester avec les paramètres du cas de tests
+-comparaison du résultat attendu avec le résultat obtenu : en cas d'échec, une exception est levée

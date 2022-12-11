@@ -1,0 +1,64 @@
+Ce document est la documentation technique officielle de l'application Tick&Trail  Il est divisé en
+plusieurs parties :
+– rappel sur le fonctionnement
+– les technologies utilises 
+– La documentation technique liee a lutilisateur 
+– Les bugs connus
+
+Description du logiciel
+Notre projet a comme objectifs de fournir au clients un trajets en train depuis une borne dediee 
+disponible dans la gare de la ville .
+Tick&Trail est un logiciel qui accompagne lutilisateur pour effectuer une reservation de train dans
+ toute la France.
+Le logiciel a une interface moderne et ergonomique,
+ permettant de gérer efficacement et simplement les reservation de tickets de train 
+
+lutilisation des nouvels technologies 
+
+utilisation de java fx
+Etend la technologie Java grâce à l'utilisation de n'importe quelle bibliothèque 
+Java au sein d'une application JavaFX.
+ permet la création et le déploiement d'applications d'apparence moderne avec du contenu riche.
+étend le niveau de prise en charge du côté client du navigateur, 
+permettant aux développeurs d'écrire l'intégralité de l'application dans un seul langage Java ou base de code, 
+sans nécessiter une interface JavaScript spécialisée.
+
+Scene Builder est un outil interactif de conception d'interface graphique pour JavaFX. 
+Il permet de créer des interfaces utilisateurs rapidement et sans avoir besoin de coder ;
+ il en résulte des fichiers au format FXML qui sont ensuite chargés par le programme pour afficher 
+une interface graphique à l'utilisateur.
+
+_______________________________________________________________________________________________________________________
+mavean 
+Apache Maven est un outil de construction, 
+et il fait la tâche tout comme Ant,
+ qui est encore un outil de construction extraordinaire.
+ Il s'agit d'un outil de gestion de projet logiciel 
+ Maven simplifie et standardise le processus de construction du projet. 
+Il gère la collaboration d'équipe, la compilation, la distribution,
+ la documentation et les tâches séparées de manière transparente. 
+Maven augmente la réutilisabilité et prend également en charge la plupart des tâches liées à la construction.
+gestion de fichier jar 
+
+wamp 
+WampServer est une plate-forme de développement Web sous Windows pour des applications Web dynamiques à l’aide du serveur Apache2,
+ du langage de scripts PHP et d’une base de données MySQL.
+ Il possède également PHPMyAdmin pour gérer plus facilement vos bases de données.
+
+Junit
+JUnit est un framework open source pour le développement et l'exécution de tests unitaires automatisables.
+ Le principal intérêt est de s'assurer que le code répond toujours aux besoins même après d'éventuelles modifications. 
+Plus généralement, ce type de tests est appelé tests unitaires de non-régression.
+Avec JUnit, l'unité de test est une classe dédiée qui regroupe des cas de tests. 
+Ces cas de tests exécutent les tâches suivantes :
+
+-création d'une instance de la classe et de tout autre objet nécessaire aux tests
+-appel de la méthode à tester avec les paramètres du cas de tests
+-comparaison du résultat attendu avec le résultat obtenu : en cas d'échec, une exception est levée
+
+
+
+
+
+
+

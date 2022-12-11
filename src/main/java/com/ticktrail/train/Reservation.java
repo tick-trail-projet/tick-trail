@@ -64,7 +64,7 @@ public class Reservation extends Mysql {
 	 */
     public ArrayList<Trip> simulation(String from, String to, String from_schedule) {
         double number = randomNumber(2, 10);
-        ArrayList<Trip> list = new ArrayList<Trip>();
+        ArrayList<Trip> list = new ArrayList<>();
         for (int i = 0; i < number; i++) {
             Cities city_from = new Cities(from);
             Cities city_to = new Cities(to);
@@ -104,7 +104,7 @@ public class Reservation extends Mysql {
 	 * @throws SQLException exception liée a la BDD
 	 */
     public ArrayList<Trip> MyReservation() throws IOException, SQLException {
-        ArrayList<Trip> list = new ArrayList<Trip>();
+        ArrayList<Trip> list = new ArrayList<>();
         User user = new User();
         ResultSet rs = super.getQuery(
                 "SELECT * FROM trips WHERE user_id = \"" + user.getWithToken().get("id") + "\" ORDER BY id DESC");

@@ -1,0 +1,13 @@
+com\ticktrail\train\Trip.class
+com\ticktrail\database\Mysql.class
+com\ticktrail\controllers\SelectTrain.class
+com\ticktrail\user\UserInterface.class
+com\ticktrail\basic\Password.class
+com\ticktrail\basic\Notification.class
+com\ticktrail\train\Cities.class
+com\ticktrail\train\Train.class
+com\ticktrail\basic\DateChecker.class
+com\ticktrail\basic\Pattern.class
+com\ticktrail\controllers\Register.class
+com\ticktrail\App.class
+com\ticktrail\FxmlLoader.class

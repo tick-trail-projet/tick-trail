@@ -1,0 +1,15 @@
+.text-input {
+    -fx-text-fill: rgb(255, 255, 255);
+}
+
+.date-picker .text-input {
+    -fx-text-fill: rgb(0, 0, 0);
+}
+
+.button {
+    -fx-background-color: transparent;
+}
+
+.button:hover {
+    -fx-background-color: blue;
+}
